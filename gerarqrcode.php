@@ -27,6 +27,33 @@ if ($aluno->rowCount() == 0)
     <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js">
     </script>
     <style>
+        @media print {
+            body {
+                background-color: #fff !important;
+                color: #000 !important;
+            }
+
+            .loader {
+                display: none !important;
+            }
+
+            #logo {
+                display: block !important;
+            }
+
+            .Participante {
+                background-color: #fff !important;
+                color: #000 !important;
+                border: 1px solid #ddd !important;
+            }
+
+            .card1 {
+                color: #000 !important;
+                border-color: #ddd !important;
+            }
+        }
+
+
         body {
             font-family: "Ubuntu", sans-serif;
             background-color: #0c121f;
@@ -103,7 +130,7 @@ if ($aluno->rowCount() == 0)
     <div class="header">
         <div class="box">
             <h1 style="color: #ccc;">
-                <?= substr($alunoSingle['nome'] ,0,15) ?>...
+                <?= substr($alunoSingle['nome'], 0, 15) ?>...
             </h1>
             <hr />
             <div class="qrcode"></div>
@@ -117,7 +144,7 @@ if ($aluno->rowCount() == 0)
         const qrcode = new QRCode(document.querySelector(".qrcode"));
 
         // Gera o QR Code automaticamente ao carregar a página
-        window.onload = function () {
+        window.onload = function() {
             const qrValue = document.getElementById("qr-value").value;
             qrcode.makeCode(qrValue);
         };

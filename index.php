@@ -81,18 +81,21 @@ $total = 0;
         </div>
 
         <table>
-
             <thead>
                 <tr>
                     <th>Nome</th>
-                    <th>Escola</th>
-                    <th>Classe</th>
-                    <th>Província</th>
-                    <th>Gerar qrCode</th>
+                    <th class="escola">Escola</th>
+                    <th class="classe">Classe</th>
+                    <th class="Província">Província</th>
+                    <th class="Gerar">Gerar qrCode</th>
                 </tr>
             </thead>
-            <tbody id="tabela"></table>
+            <tbody id="tabela" >
+            </tbody>
+            </table>
     </section>
+
+  
 
 </main>
 <script>
@@ -110,8 +113,8 @@ $total = 0;
                     <tr>
                         <td>${aluno.nome}</td>
                         <td>${aluno.escola_nome}</td>
-                        <td>${aluno.classe}</td>
-                        <td>${aluno.provincia}</td>
+                        <td class="aluno">${aluno.classe}</td>
+                        <td class="Proví">${aluno.provincia}</td>
                         <td>
                             <a href="gerarqrcode.php?id=${aluno.id}" style="color: #f39402;">Gerar</a>
                         </td>

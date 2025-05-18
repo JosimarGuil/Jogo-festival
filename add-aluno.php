@@ -11,17 +11,17 @@ $escola->execute();
 <main class="container">
     <form id="addAluno">
         <section class="registra">
-              
-            <div class="inputs" >
+
+            <div class="inputs">
                 <small style="color: red; display: block; text-align: center;" id="error"></small>
                 <label for="">Nome</label><br>
-                <input type="text" placeholder="Nome" id="Nome" name="nome" required ><br><br>
+                <input type="text" placeholder="Nome" id="Nome" name="nome" required><br><br>
                 <small style="color: red; display: block; margin-bottom: 5px;" id="nome"></small>
                 <label for="">Seleciona Escola</label><br>
                 <select name="school_id" required>
-                    <?php  foreach($escola->fetchAll() as $escola) {?>
-                        <option value="<?=$escola['school_id']?>"><?=$escola['nome']?></option>
-                    <?php  }?>
+                    <?php foreach ($escola->fetchAll() as $escola) { ?>
+                        <option value="<?= $escola['school_id'] ?>"><?= $escola['nome'] ?></option>
+                    <?php  } ?>
                 </select><br><br>
                 <small style="color: red; display: block; margin-bottom: 5px;" id="school_id"></small>
 
@@ -37,8 +37,8 @@ $escola->execute();
 
                 <label for="">Seleciona Provincia</label><br>
                 <select name="provincia" required>
-                    <option value="Luanda">Luanda</option>
                     <option value="Malanje">Malanje</option>
+                    <option value="Luanda">Luanda</option>
                 </select><br>
                 <small style="color: red; display: block; margin-bottom: 5px;" id="provincia"></small>
 
@@ -47,16 +47,15 @@ $escola->execute();
                 </div>
             </div>
             <div class="imagemregister">
-                <img class="gif" src="assets/img/register.png" alt="" >
-                    
+                <img class="gif" src="assets/img/register.png" alt="">
+
             </div>
         </section>
     </form>
 </main>
 
 <script>
-    document.getElementById("addAluno").addEventListener('submit', function(e)
-    {
+    document.getElementById("addAluno").addEventListener('submit', function(e) {
         e.preventDefault();
         document.getElementById("nome").innerText = "";
         document.getElementById("classe").innerText = "";
@@ -65,25 +64,19 @@ $escola->execute();
 
         const formData = new FormData(this);
 
-        fetch('actions/addAluno.php',
-            {
-                method:"POST",
-                body:formData
-            }
-        ).then(response => response.json()).
-        then(data =>
-        {
-            if (data.success)
-            {
+        fetch('actions/addAluno.php', {
+            method: "POST",
+            body: formData
+        }).then(response => response.json()).
+        then(data => {
+            if (data.success) {
                 swal("Sucesso!", "Novo aluno inserido com sucesso", "success");
                 this.reset();
-            }
-            else
-            {
-                document.getElementById("nome").innerText=data.validate.nome;
-                document.getElementById("provincia").innerText=data.validate.provincia ?? '';
-                document.getElementById("classe").innerText=data.validate.classe;
-                document.getElementById("school_id").innerText=data.validate.school_id;
+            } else {
+                document.getElementById("nome").innerText = data.validate.nome;
+                document.getElementById("provincia").innerText = data.validate.provincia ?? '';
+                document.getElementById("classe").innerText = data.validate.classe;
+                document.getElementById("school_id").innerText = data.validate.school_id;
             }
         }).catch(error => console.log('Error:', error));
     });

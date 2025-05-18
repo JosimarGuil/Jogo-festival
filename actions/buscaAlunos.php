@@ -8,7 +8,7 @@ $stmt = $conexao->prepare("
     FROM alunos
     JOIN schools ON alunos.school_id = schools.school_id
     WHERE alunos.nome LIKE ? OR schools.nome LIKE ?
-    ORDER BY alunos.id DESC LIMIT 3
+    ORDER BY alunos.id DESC LIMIT 30
 ");
 $stmt->execute(["%$busca%", "%$busca%"]);
 $alunos = $stmt->fetchAll(PDO::FETCH_ASSOC);

@@ -88,7 +88,7 @@
                         <span class="counter"></span>
                     </div>
                 </div><br>
-                <p style="text-align: center;" class="pergunta"></p>
+                <p style="text-align: center; font-size: 20px; color: #f39402;" class="pergunta"></p>
                 <span class="error" style="color: red; text-align: center; display: block;"></span>
                 <span class="success" style="color: green; text-align: center; display: block;"></span>
 

@@ -477,11 +477,6 @@ select:hover {
   .card0{
     display: flex;
   }
-  .card0{
-    display: grid;
-    grid-template-columns: repeat(6, 1fr);
-  }
-
 
   .card{
     background-color: #0F172A;
